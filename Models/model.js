@@ -1,5 +1,13 @@
+/**
+ * This is the model class
+ * Holds the model
+ * name
+ * address
+ * phoneNumber
+ * emailAddress
+ * rating (a number from 1 to 10)
+ */
 const mongoose = require('mongoose');
-
 const dataSchema = new mongoose.Schema({
     name: {
         required: true,

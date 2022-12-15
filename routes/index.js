@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var app = express();
 
+//Json
 var bodyParser = require('body-parser');
 app.use(express.json());
 app.use(bodyParser.urlencoded({
@@ -23,9 +24,9 @@ database.on('error', (error) => {
 database.once('connected', () => {
   console.log('Database Connected OK');//Logs ok to know if good
 })
+
 //Model
 const Model = require('../Models/model');
-
 
 //Get function | this function gets all the data and shows it
 /*
@@ -36,7 +37,7 @@ router.get('/api/restaurants', async (req, res) => {
 
   try{
     //This limit the data to only show 10 
-    const data = await Model.find().limit(10);
+    const data = await Model.find().limit(10);//assuming this is what your wanted when you said Each page should show only 10 items at a time. i hope XD
     //const data = await Model.find()//Debuging becasue my data was way down 
     res.json(data)
   }
