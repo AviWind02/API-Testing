@@ -38,7 +38,7 @@ router.get('/api/restaurants', async (req, res) => {
   try{
     //This limit the data to only show 10 
     const data = await Model.find().limit(10);//assuming this is what your wanted when you said Each page should show only 10 items at a time. i hope XD
-    //const data = await Model.find()//Debuging becasue my data was way down 
+    //const data = await Model.find()//Debuging becasue my data was way way down 
     res.json(data)
   }
   catch(error){

@@ -25,9 +25,11 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    rating: {
+    rating: {//Setting a min and max fot 1-10
         required: true,
-        type: Number
+        type: Number,
+        min: 0,
+        max: 10
     }
 })
 
