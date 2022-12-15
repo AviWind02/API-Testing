@@ -1,7 +1,6 @@
-const { Double } = require('mongodb');
 const mongoose = require('mongoose');
 
-const data = new mongoose.Schema({
+const dataSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String
@@ -20,8 +19,8 @@ const data = new mongoose.Schema({
     },
     rating: {
         required: true,
-        type: String
+        type: Number
     }
 })
 
-module.exports = mongoose.model('Restaurant', data)
+module.exports = mongoose.model('Restaurant', dataSchema)

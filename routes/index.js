@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var app = express();
 
-const app = express();
-
-const bodyParser = require("body-parser")
+var bodyParser = require('body-parser');
+app.use(express.json());
 app.use(bodyParser.urlencoded({
-	extended:true
+  extended: true
 }));
 
 //Config
@@ -32,10 +32,12 @@ const Model = require('../Models/model');
 Lists all restaurants in the database
 (unfiltered)
  */
-router.get('/restaurants', async (req, res) => {
+router.get('/api/restaurants', async (req, res) => {
 
   try{
-    const data = await  Model.find();
+    //This limit the data to only show 10 
+    const data = await Model.find().limit(10);
+    //const data = await Model.find()//Debuging becasue my data was way down 
     res.json(data)
   }
   catch(error){
@@ -47,31 +49,31 @@ router.get('/restaurants', async (req, res) => {
 Creates a new restaurant record in the
 database with the information provided
 */
-router.post('/restaurants',  async (req, res)  => {
+router.post('/api/restaurants',   function (req, res)  {
 
   const data = new Model({
+
       name: req.body.name,
       address: req.body.address,
       phoneNumber: req.body.phoneNumber,
       emailAddress: req.body.emailAddress,
       rating: req.body.rating
   })
-
+  console.log(req.body);
   try {
-      const dataToSave = await data.save();
+      const dataToSave = data.save();
       console.log(res.status(200).json(dataToSave));
-      //res.render('index', { title: 'Data saved' });
 
   }
   catch (error) {
-    console.log(res.status(400).json({message: error.message}));
+    //console.log(res.status(400).json({message: error.message}));
   }
 })
 //Delete function | this functions delete the data with the ID used
 /*
 Removes the restaurant from the database
 */
-router.delete('/restaurants/:id', async (req, res) => {
+router.delete('/api/restaurants/:id', async (req, res) => {
   console.log("Deleting data.");
   try {
       const id = req.params.id;
