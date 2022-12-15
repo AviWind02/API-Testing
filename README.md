@@ -1,4 +1,4 @@
-# Avi-finalexam
+# Avi-finalexam - API
 
 Get  
 /api/restaurants  
