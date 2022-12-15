@@ -16,4 +16,9 @@ Data tested with
   "emailAddress": "Test@test.tes",
   "rating": "5"
 }
-
+# commends used
+npm init
+npm i express mongoose nodemon dotenv
+npx express-generator
+ 
+ 
