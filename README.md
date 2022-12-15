@@ -1,9 +1,9 @@
 # Avi-finalexam
 
 Get  
-/api/restaurants
+/api/restaurants  
 Post  
-/api/restaurants
+/api/restaurants  
 Delete  
-/api/restaurants/ID
+/api/restaurants/ID  
 
